@@ -28,7 +28,7 @@ module FuKing
 
     def self.post_status(status)
       if configs["#{RAILS_ENV}_uri".to_sym].blank?
-        logger.debug("Skipping tweet in RAILS_ENV=#{RAILS_ENV}. To change this, specify a value for #{RAILS_ENV}_uri in config/fu_king.yml.")
+        logger.debug("Skipping tweet in RAILS_ENV=#{RAILS_ENV}. To change this, specify a value for #{RAILS_ENV}_uri in config/twitter.yml.")
       else
         response = do_post(configs[:write_url], :status => CGI::escapeHTML(status))
         if response.code.to_i.eql?(200)

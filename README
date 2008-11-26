@@ -37,6 +37,8 @@ Twitter Examples
   @tweets = FuKing::Twitter.read_status(:page => 3)
   @tweets = FuKing::Twitter.read_status(:since => Date.new - 1.day)
 
+Since the read_status method returns an array, you can perform the typical array methods on this collection of Twitter statuses (http://ruby-doc.org/core/classes/Array.html):
+
 
 ** Post a status:
   @tweet = FuKing::Twitter.post_status("Testing 1,2,3... Is this thing on?")

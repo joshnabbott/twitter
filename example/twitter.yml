@@ -1,0 +1,6 @@
+twitter:
+  read_url: http://twitter.com/statuses/user_timeline/<username>.xml
+  write_url: http://username:password@twitter.com/statuses/update.xml
+  development_uri: localhost:3000
+  test_uri: localhost:3000
+  production_uri: yourdomainname.com

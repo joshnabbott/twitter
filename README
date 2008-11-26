@@ -32,6 +32,12 @@ Twitter Examples
   
 * Just like the Twitter docs say, this will return your 20 most recent tweets. You can pass in options specified in the Twitter API docs like "count", "page", "since", etc.
 
+* A few examples are:
+  @tweets = FuKing::Twitter.read_status(:count => 5)
+  @tweets = FuKing::Twitter.read_status(:page => 3)
+  @tweets = FuKing::Twitter.read_status(:since => Date.new - 1.day)
+
+
 ** Post a status:
   @tweet = FuKing::Twitter.post_status("Testing 1,2,3... Is this thing on?")
 

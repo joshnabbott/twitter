@@ -1,1 +1,1 @@
-# Uninstall hook code here
+FileUtils.rm "#{File.dirname(__FILE__)}/config/twitter.yml"

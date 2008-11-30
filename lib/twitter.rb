@@ -16,7 +16,7 @@ module FuKing
   # That will get all tweets. You can pass in the usual options to twitter to limit what
   # gets returned.
   # To post, try:
-  # FuKing::Twitter.post_status("I love twitter!!!!")
+  # FuKing::Twitter.update("I love twitter!!!!")
   class Twitter
     cattr_accessor :config_file
     self.config_file = RAILS_ROOT + '/config/twitter.yml'
@@ -26,11 +26,11 @@ module FuKing
       parse_response(doc)
     end
 
-    def self.post_status(status)
+    def self.update(status, in_reply_to_status_id = nil)
       if configs["#{RAILS_ENV}_uri".to_sym].blank?
         logger.debug("Skipping tweet in RAILS_ENV=#{RAILS_ENV}. To change this, specify a value for #{RAILS_ENV}_uri in config/twitter.yml.")
       else
-        response = do_post(configs[:write_url], :status => CGI::escapeHTML(status))
+        response = do_post(configs[:write_url], :status => CGI::escapeHTML(status), :in_reply_to_status_id => in_reply_to_status_id)
         if response.code.to_i.eql?(200)
           parse_response(Hpricot.XML(response.body))
         else

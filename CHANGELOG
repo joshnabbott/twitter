@@ -1,0 +1,2 @@
+11-29-2008 - Josh N. Abbott
+- Renamed the "post_status" method to "update". Added support for passing the 'in_reply_to_status_id' parameter.

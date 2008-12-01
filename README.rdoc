@@ -14,7 +14,7 @@ You might want to read that to see what options can be passed to twitter with th
 
 And even then, it's not fully supporting the options there. That should change soon.
 
-Please note, this plugin is actually two in one. It contains a Twitter class that give you the basic API functionality, and the Twitterify module for the <tt>twitterify</tt> functionality. I'll probably extract them into their own plugins at some point, but for now, this should get you up and running quickly.
+*Please note,* this plugin is actually two in one. It contains a Twitter class that give you the basic API functionality, and the Twitterify module for the <tt>twitterify</tt> functionality. I'll probably extract them into their own plugins at some point, but for now, this should get you up and running quickly.
 
 === Installation
 
@@ -49,19 +49,19 @@ Right now, the post_status method doesn't accept any options. Just a status mess
 === Twitterify Examples
 
 To enable "auto-tweeting" when you create a new blog post (for example) you'll need to do something like this in your BlogPost model:
-  <tt>twitterify :url, :title</tt>
+  twitterify :url, :title
 
 Twitterify does not require any options to be passed to it. By default it will just tweet the url to the blog post. Any instance method of BlogPost can be passed to twitterify, although, a twitter status update cannot exceed 160 characters or it will be truncated to fit.
 
 Additionally, you may pass conditionals, such as <tt>:if</tt> or <tt>:unless</tt> in the form of a Proc. An example would be this:
 
 Only tweet if the is_published? method returns true.
-  <tt>twitterify :url, :title, :if => Proc.new { |record| record.is_published? }</tt>
+  twitterify :url, :title, :if => Proc.new { |record| record.is_published? }
 
 This is assuming that is_published? is a method of the Blog Post object.
 
 Only tweet if the post is a new record being created.
-  <tt>twitterify :url, :title, :if => Proc.new { |record| record.new_record? }</tt>
+  twitterify :url, :title, :if => Proc.new { |record| record.new_record? }
 
 == Contributing
 

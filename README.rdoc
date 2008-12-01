@@ -14,7 +14,7 @@ You might want to read that to see what options can be passed to twitter with th
 
 And even then, it's not fully supporting the options there. That should change soon.
 
-*Please note,* this plugin is actually two in one. It contains a Twitter class that give you the basic API functionality, and the Twitterify module for the <tt>twitterify</tt> functionality. I'll probably extract them into their own plugins at some point, but for now, this should get you up and running quickly.
+*Please note*, this plugin is actually two in one. It contains a Twitter class that give you the basic API functionality, and the Twitterify module for the <tt>twitterify</tt> functionality. I'll probably extract them into their own plugins at some point, but for now, this should get you up and running quickly.
 
 === Installation
 

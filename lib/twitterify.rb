@@ -50,9 +50,14 @@ module FuKing
       end
 
     private
+      # Ripped off right the hell from Rails.
+      def interpolate_string(string)
+        instance_eval("%@#{string.gsub('@', '\@')}@")
+      end
+
       def parse_options(options)
         status_array = options.inject([]) do |array,option|
-          array << (send(option) rescue option)
+          array << (send(option) rescue interpolate_string(option))
           array
         end
         status = status_array.join(' - ')

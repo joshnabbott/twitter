@@ -46,7 +46,7 @@ module FuKing
     # Instance methods to mix into ActiveRecord.
     module InstanceMethods #:nodoc:
       def tweet_me(options = nil)
-        FuKing::Twitter.post_status(parse_options(options))
+        FuKing::Twitter.update(parse_options(options))
       end
 
     private

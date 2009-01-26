@@ -52,7 +52,7 @@ module FuKing
     private
       # Ripped off right the hell from Rails.
       def interpolate_string(string)
-        instance_eval("%@#{string.gsub('@', '\@')}@")
+        instance_eval("%@#{string.gsub('@', '\@')}@") if string.kind_of?(String)
       end
 
       def parse_options(options)
@@ -66,8 +66,8 @@ module FuKing
 
       def truncate(text, length = 140, truncate_string = "...")
         if text
-          l = length - truncate_string.chars.length
-          chars = text.chars
+          l = length - truncate_string.mb_chars.length
+          chars = text.mb_chars
           (chars.length > length ? chars[0...l] + truncate_string : text).to_s
         end
       end
